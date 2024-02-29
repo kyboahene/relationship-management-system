@@ -1,1 +1,22 @@
-/* You can add global styles to this file, and also import other style files */
+/* @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk&display=swap"); */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* * {
+  font-family: "Space Grotesk", sans-serif;
+} */
+
+.ant-btn {
+  border-radius: 12px !important;
+}
+
+.ant-btn-primary {
+  background: #000 !important;
+  border: 1px black solid !important;
+}
+
+.ant-modal {
+  border-radius: 12px !important;
+}

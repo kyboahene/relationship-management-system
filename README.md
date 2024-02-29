@@ -1,27 +1,35 @@
-# Test
+<h3 align="center"> Technical Assessment (Relationship Management System) </h3>
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.1.
+## Introduction
 
-## Development server
+The relationship management solution addresses the issue of conflicting tokens and user data when RMs open multiple tabs for customer signups. The solution should ensure that each customer signup is uniquely identified with an ID, preventing data conflicts in scenarios with concurrent tab usage.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Problem
 
-## Code scaffolding
+Concurrent signup attempts from multiple tabs can lead to:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- Duplicate customer records
+- [Data inconsistencies] - partially completed signups from one tab overwritten by another
+- [Race conditions] - data from one tab impacting the signup process in another
 
-## Build
+## Solution
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+This application solves the problems by main generating unique IDs when customer are being signed up. Additionally, there is a check for existing IDs before customer data is added to the database (json-server) in special cases where IDs generated are the same.
 
-## Running unit tests
+## Explanation
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- A unique ID using uuid from and attached to the customer data
+- A duplicate check is done by querying the database with the unique ID generated for any existing customer
+- customer data together with the unique ID is then stored in the database (json-server).
+- Error handling is implemented to handle potential issues during ID generation and signup
 
-## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Installation
+To use the relationship management system, follow these steps:
 
-## Further help
+- Clone the repository from the GitHub repository.
+- Run `npm install` to install the project dependencies.
+- Run `ng serve` to start the development server. The application will be accessible at http://localhost:4200/ by default.
+- To start the server navigate to src directory and run `npx json-server --watch db.json`.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
