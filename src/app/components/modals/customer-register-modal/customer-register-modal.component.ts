@@ -66,12 +66,10 @@ export class CustomerRegisterComponent {
       };
 
       // check for existing customer by customer's id
-      this.customerService.getCustomers().subscribe({
-        next: res => {
-          const customerExist = res.find(i => i.id === customer.id);
-
-          if (customerExist) {
-            this.notification.error("Error found", `${customerExist.firstName}  ${customerExist.lastName} has been signed up already`)
+      this.customerService.doesCustomerExist(customer).subscribe({
+        next: found => {
+          if (found) {
+            this.notification.error("Error found", `${found.firstName}  ${found.lastName} has been signed up already`)
             return
           }
 

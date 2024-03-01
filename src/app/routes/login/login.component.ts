@@ -54,6 +54,7 @@ export class LoginComponent {
           },
           error: error => {
             this.notification.error("Error found", error.message)
+            this.loading = false
           },
           complete: () => this.loading = false
         });

@@ -14,5 +14,12 @@
     }
   ],
   "customers": [
+    {
+      "id": "672eac8c-88d5-4408-a4a5-3772033fda1c",
+      "email": "kyeiyaw438@gmail.com",
+      "firstName": "Yaw",
+      "lastName": "Boahene",
+      "phone": "0504512117"
+    }
   ]
 }
