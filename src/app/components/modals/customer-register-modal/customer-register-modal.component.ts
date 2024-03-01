@@ -35,8 +35,8 @@ export class CustomerRegisterComponent {
     this.registerCustomerForm = this.fb.group({
       firstName: ["", Validators.required],
       lastName: ["", Validators.required],
-      email: ["", [Validators.required]],
-      phone: ["", [Validators.required]],
+      email: ["", Validators.required],
+      phone: ["", Validators.required],
     });
   }
 
@@ -66,10 +66,12 @@ export class CustomerRegisterComponent {
       };
 
       // check for existing customer by customer's id
-      this.customerService.getCustomer(customer.id).subscribe({
+      this.customerService.getCustomers().subscribe({
         next: res => {
-          if (res) {
-            this.notification.error("Error found", `${res.firstName}  ${res.lastName} has been signed up already`)
+          const customerExist = res.find(i => i.id === customer.id);
+
+          if (customerExist) {
+            this.notification.error("Error found", `${customerExist.firstName}  ${customerExist.lastName} has been signed up already`)
             return
           }
 
@@ -91,7 +93,11 @@ export class CustomerRegisterComponent {
               },
               complete: () => this.loading = false
             });
-        }
+        },
+        error: (error) => {
+          this.notification.error("Error found", error.message);
+        },
+        complete: () => this.loading = false
       })
 
 

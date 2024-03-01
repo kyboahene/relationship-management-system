@@ -1,4 +1,4 @@
-/* @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -19,4 +19,4 @@
 
 .ant-modal {
   border-radius: 12px !important;
-} */
+}
