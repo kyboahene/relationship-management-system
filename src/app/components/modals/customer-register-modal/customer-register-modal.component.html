@@ -1,0 +1,57 @@
+<nz-modal
+  [nzVisible]="isVisible"
+  [nzOkLoading]="loading"
+  nzTitle="Register Customer"
+  (nzOnCancel)="handleCancel()"
+  (nzOnOk)="addCustomers()"
+>
+  <ng-container *nzModalContent>
+    <form nz-form [formGroup]="registerCustomerForm">
+      <nz-form-item>
+        <nz-form-control nzErrorTip="Please input customer's first name!">
+          <input
+            class="px-4 py-2 border rounded-xl w-full"
+            type="text"
+            nz-input
+            formControlName="firstName"
+            placeholder="First Name"
+          />
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-control nzErrorTip="Please input customer's last name!">
+          <input
+            class="px-4 py-2 border rounded-xl w-full"
+            type="text"
+            nz-input
+            formControlName="lastName"
+            placeholder="Last Name"
+          />
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-control nzErrorTip="Please input customer'rs email!">
+          <input
+            class="px-4 py-2 border rounded-xl w-full"
+            nz-input
+            type="email"
+            formControlName="email"
+            placeholder="Email"
+          />
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-control nzErrorTip="Please input customer's phone!">
+          <input
+            class="px-4 py-2 border rounded-xl w-full"
+            type="phone"
+            nz-input
+            formControlName="phone"
+            placeholder="Phone"
+          />
+        </nz-form-control>
+      </nz-form-item>
+    </form>
+  </ng-container>
+</nz-modal>

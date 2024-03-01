@@ -38,6 +38,7 @@ import { LoginComponent } from './routes/login/login.component';
 import { AuthService } from './services/auth.service';
 import { UserService } from './services/user.service';
 import { CustomerService } from './services/customer.service';
+import { RouterModule } from '@angular/router';
 
 registerLocaleData(en);
 
@@ -51,6 +52,7 @@ registerLocaleData(en);
     CustomerRegisterComponent,
   ],
   imports: [
+    RouterModule,
     FormsModule,
     ReactiveFormsModule,
     BrowserModule,

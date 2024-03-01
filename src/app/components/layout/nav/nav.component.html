@@ -1,0 +1,36 @@
+<nav class="border py-4 bg-white">
+  <div
+    class="mx-auto w-full max-w-screen-xl px-2.5 flex justify-between items-center"
+  >
+    <a routerLink="/">
+      <h1 class="font-bold text-2xl">RMSystem</h1>
+    </a>
+
+    <div class="flex gap-3">
+      <span nz-icon nzType="user" nzTheme="outline"></span>
+      <a nz-dropdown [nzDropdownMenu]="account">
+        <span class="cursor-pointer">{{ authenticatedUser?.name }}</span>
+      </a>
+    </div>
+    <nz-dropdown-menu #menu="nzDropdownMenu">
+      <section
+        class="bg-white p-3 shadow w-[280px] divide-y divide-solid"
+      ></section>
+    </nz-dropdown-menu>
+
+    <nz-dropdown-menu #account="nzDropdownMenu">
+      <section class="bg-white p-3 rounded-xl shadow">
+        <div class="" *ngIf="!authenticatedUser">
+          <a routerLink="/login">Log in</a>
+        </div>
+        <section
+          class="w-[200px] flex flex-col gap-4 divide-y divide-solid"
+          *ngIf="authenticatedUser"
+        >
+          <p>{{ authenticatedUser.name }}</p>
+          <a (click)="logout()">Logout</a>
+        </section>
+      </section>
+    </nz-dropdown-menu>
+  </div>
+</nav>

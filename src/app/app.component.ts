@@ -2,11 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { StorageService } from './services/storage.service';
 @Component({
   selector: 'app-root',
-  template: `
-  <div class="bg-gray-100">
-      <router-outlet ></router-outlet>
-  </div>
-  `,
+  templateUrl: "./app.component.html",
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {

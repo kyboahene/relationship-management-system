@@ -14,7 +14,7 @@ Concurrent signup attempts from multiple tabs can lead to:
 
 ## Solution
 
-This application solves the problems by main generating unique IDs when customer are being signed up. Additionally, there is a check for existing IDs before customer data is added to the database (json-server) in special cases where IDs generated are the same.
+This application solves the problems by generating unique IDs when customers are being signed up. Additionally, there is a check for existing IDs before customer data is added to the database (json-server) in special cases where IDs generated are the same.
 
 ## Explanation
 
@@ -30,6 +30,6 @@ To use the relationship management system, follow these steps:
 - Clone the repository from the GitHub repository.
 - Run `npm install` to install the project dependencies.
 - Run `ng serve` to start the development server. The application will be accessible at http://localhost:4200/ by default.
-- To start the server navigate to src directory and run `npx json-server --watch db.json`.
+- To start the server navigate to src directory and run `npx json-server db.json`.
 
 

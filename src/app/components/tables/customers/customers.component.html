@@ -1,0 +1,23 @@
+<div class="w-full border bg-white rounded-xl">
+  <div class="border-b py-6 grid grid-cols-5 font-bold text-center">
+    <div>ID</div>
+    <div>First Name</div>
+    <div>Last Name</div>
+    <div>Email</div>
+    <div>Phone</div>
+  </div>
+  <div
+    class="grid grid-cols-5 py-6 border-b text-center"
+    *ngFor="let customer of customers"
+  >
+    <td>{{customer.id}}</td>
+    <td>{{customer.firstName}}</td>
+    <td>{{customer.lastName}}</td>
+    <td>{{customer.email}}</td>
+    <td>{{customer.phone}}</td>
+  </div>
+
+  <div class="py-4" *ngIf="customers.length < 1">
+    <nz-empty nzNotFoundImage="simple"></nz-empty>
+  </div>
+</div>
